@@ -16,7 +16,7 @@ class DjangoContribPermission(BasePermission):
             user_allperm = [name.split('.')[1] for name in user.get_all_permissions()]
             path_name = str(request.path).replace("_", "").split('/')[2] if len(
                 str(request.path).split('/')) >= 3 else None
-            base_name = getattr(view, 'basename') if getattr(view, 'basename') else path_name
+            base_name = getattr(view, 'basename') if hasattr(view, 'basename') and getattr(view, 'basename') else path_name
             perm_name = f"{method_dic.get(request.method)}_{base_name}"
             flag = [True for p in user_allperm if perm_name in p]
             if flag or user.is_superuser:
