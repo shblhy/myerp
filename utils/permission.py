@@ -19,7 +19,7 @@ class DjangoContribPermission(BasePermission):
             base_name = getattr(view, 'basename') if getattr(view, 'basename') else path_name
             perm_name = f"{method_dic.get(request.method)}_{base_name}"
             flag = [True for p in user_allperm if perm_name in p]
-            if flag or (user.username == "root" and user.is_superuser):
+            if flag or user.is_superuser:
                 return True
             return False
         return False

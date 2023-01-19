@@ -20,7 +20,7 @@ class MeetingViewSet(ModelViewSet):
         BasicAuthentication,
     )
     permission_classes = (
-        DjangoContribPermission
+        DjangoContribPermission,
         # MeetingPermission
         # 在django from @permission_required('meeting.add_meeting') 的基础上，增加了一条规则：普通用户只能编辑自己创建的会议
     )
