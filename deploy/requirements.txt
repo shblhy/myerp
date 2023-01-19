@@ -1,0 +1,8 @@
+Django
+djangorestframework
+mysqlclient
+gunicorn
+drf-yasg
+requests
+django-cors-headers
+PyMySQL
